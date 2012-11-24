@@ -1,0 +1,101 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% block title %}Welcome{% endblock %} &mdash; {{app_name}}
+    </title>
+    <meta name="description" content="Share things you bought with friends.">
+    <link type="text/css" rel="stylesheet" href="/static/awesome-buttons.css">
+    <link type="text/css" rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div id="doc">
+      <div class="hd">
+        {% if logged_in_user %}
+          <div id="user-info">
+            <div class="info">
+              <a class="name" href="/user/{{ logged_in_user.user_id }}">
+                {{ logged_in_user.name }}
+              </a>
+              <a class="logout" onclick="FB.logout()">Logout</a>
+            </div>
+            <img width="50" height="50" src="{{ logged_in_user.picture }}">
+          </div>
+        {% endif %}
+        <a class="logo" href="/">{{app_name}}</a>
+      </div>
+
+      {% if message %}
+        <div class="message {{ message.type }}">{{ message.content|safe }}</div>
+      {% endif %}
+
+      <div class="bd">
+        {% block body %}{% endblock %}
+      </div><!-- .bd -->
+
+      <div class="ft">
+        <span onclick="FB.api({ method: 'auth.revokeAuthorization' })">
+	Click here to remove this app.
+        </span>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/static/jquery-1.4.2.min.js"></script>
+    <!--link type="text/css" rel="stylesheet" href="/static/fonts-min.css" /--> 
+    <!--script type="text/javascript" src="/static/yui-min.js"></script-->
+    <!--script type="text/javascript" src="/static/jquery-1.4.2.min.js"></script-->
+    <link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/3.3.0/build/cssfonts/fonts-min.css" /> 
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	  
+    <script type="text/javascript" src="/static/brag.js"></script>
+    <script type="text/javascript" src="/static/main.js"></script>
+    <script type="text/javascript">
+
+function publishItNow(title) {
+  FB.ui({
+    method: 'stream.publish',
+    attachment: {
+      name: 'ipad 2',
+      caption: "I bought something!",
+      media: [{
+        type: 'image',
+        href: 'rttp://www.tongbram.com/wp-content/uploads/2011/03/Screen-shot-2011-03-20-at-9.54.29-AM.png',
+        src: 'rttp://www.tongbram.com/wp-content/uploads/2011/03/Screen-shot-2011-03-20-at-9.54.29-AM.png'
+      }]
+    },
+    action_links: [{
+      text: 'View my products I bought recently',
+      href: 'http://apps.facebook.com/naobinaobi/'
+    }],
+    user_message_prompt: 'Tell your friends about the purchase:'
+  });
+}
+</script>
+    <div id="fb-root"></div>
+    <script>
+      {# async loading of facebook js sdk #}
+      window.fbAsyncInit = function() { facebookInit({{ js_conf|safe }}) };
+      (function() {
+        var e = document.createElement('script');
+        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+      }());
+
+      {# async loading of google analytics #}
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19854556-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

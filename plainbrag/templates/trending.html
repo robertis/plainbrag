@@ -1,0 +1,34 @@
+
+     <div id="recentbuys">
+      <!--div class="info">
+	<p>
+          What other users have been buying recently.	
+	</p>
+      </div-->
+      {% if latest_products %}
+      <div id="latest">
+         <ul>
+	    {% for lproduct in latest_products %}
+	    <li>
+	      <span>{{ lproduct.user.name}}</span> 
+	      <span>bought</span>
+	      <span>{{ lproduct.product.title }}</span>
+	      <span class="quite status-time">{{ lproduct.purchase_date}}</span>
+	    </li>
+	    {% endfor %}
+
+	 </ul>
+	  <!--tbody id="recent-bd">
+	    {% for lproduct in latest_products %}
+	    <tr>
+	      <td>{{ lproduct.product.title }}</td>
+	      <td>{{ lproduct.purchase_date}}</td>
+	      <td>{{ lproduct.price}}</td>
+	      <td>{{ lproduct.user.name}}</td>
+	    </tr>
+	    {% endfor %}
+	  </tbody-->
+      </div>
+      {% endif %}
+
+     </div>

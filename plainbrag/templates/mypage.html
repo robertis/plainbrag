@@ -1,0 +1,26 @@
+{% extends "fbbase.html" %}
+{% block title %}My page{% endblock %}
+{% block body %}
+<div class="yui3-skin-sam  yui-skin-sam">
+    <div id="buys">
+      <ul>
+	<li><a href="#recentbuys"><span>Trending</span></a></li>
+	<li><a href="#myproducts"><span>My Page</span></a></li>
+	<li><a href="#friends"><span>Friends</span></a></li>
+	<li><a href="#about"><span>About</span></a></li>
+	<li><a href="#blog"><span>Blog</span></a></li>
+      </ul>
+
+      <div>
+	{% include "trending.html" %}
+	{% include "myproducts.html" %}
+	{% include "friends.html" %}
+	{% include "about.html" %}
+	{% include "blog.html" %}
+      </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

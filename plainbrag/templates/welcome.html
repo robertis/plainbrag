@@ -1,0 +1,23 @@
+{% extends "fbbase.html" %}
+
+{% block title %}Welcome{% endblock %}
+{% block body %}
+<div class="welcome">
+  <h1>Welcome to {{app_name}}</h1>
+
+  <div class="info">
+    <p>
+      Let your friends know what you bought recently. You can also write reviews on the products so your friends can see them before they buy similar things.
+    </p>
+    <p>
+      In order to use {{app_name}}, you must sign in with your
+      Facebook account.
+    </p>
+  </div>
+
+  <div id="login-flow">
+    <fb:login-button perms="email,offline_access" show-faces="true"></fb:login-button>
+  </div>
+</div>
+<img height="226" width="340" class="promo" alt="Welcome to {{app_name}}" src="/static/shopping.jpg">
+{% endblock %}

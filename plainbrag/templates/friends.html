@@ -1,0 +1,17 @@
+
+      <div class="friends">
+	  {% if friends %}
+	<h1>Friends using {{app_name}}</h1>
+	<div id="friends-buys">
+	  {% for fid, friend in friends.items %}
+	  <div class="buy">
+	    <img class="pic" height="50" width="50"
+		 src="https://graph.facebook.com/{{friend.user_id}}/picture">
+
+		<span> {{ friend.first_name }} </span>
+	    <div style="clear: both;"></div>
+	  </div>
+	  {% endfor %}
+	</div>
+	{% endif %}
+      </div>

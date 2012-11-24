@@ -1,0 +1,67 @@
+
+<div id="myproducts">
+
+
+      <div id="recent-buys">
+      {% if products %}
+	<h1>Your Recent Products!!</h1>
+	<!--ul>
+	    {% for product in products %}
+	    <li><span>{{ product.product.title }}&nbsp;&nbsp; {{ product.purchase_date}} </span>
+	      <span class="publish-button"><input value="publish" type="submit" onClick='publishIt({{product.publish_title}})'/> </span>
+	    </li>
+	    {% endfor %}
+	</ul-->
+      {% endif %}
+      </div>
+
+
+      <div id="main" class="main">
+	<h1> What did you buy recently ? </h1>
+	<form id="myform">
+	  <div style="display: none">
+	    <input id="csrf" type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+	    <input id="user_id" type="hidden" name="user_id" value="{{logged_in_user.user_id}}">
+	    <textarea id="titlestr">{{titlestr}}</textarea>
+	    <textarea id="prodjson">{{prodjson}}</textarea>
+	  </div>
+	  <div>
+	    <label for="title">What did you buy ?</label>
+	    <input id="title" name="title" class="text" type="text">
+	  </div>
+	  <div>
+	    <label for="link">Any link/URL ?</label>
+	    <input id="link" name="link" class="text" type="text">
+	  </div>
+	  <div>
+	    <label for="image_link">Image URL ?</label>
+	    <input id="image_link" name="image_link" class="text" type="text">
+	  </div>
+	  <div>
+	    <label for="price">Price</label>
+	    <input id="price" name="price" class="text" type="text">
+	  </div>
+	  <!--div>
+	    <label for="description">Description/review ?</label>
+	    <textarea id="description" rows="10" cols="30" name="description" class="txarea" type="textarea">
+	    </textarea>
+	  </div-->
+	  <div>
+	    <label for="date_month">When did you buy ? (MM/DD/YYYY)</label>
+	    <input id="date_month" name="date_month" class="text" type="text"> /
+	    <input id="date_day" name="date_day" class="text" type="text"> /
+	    <input id="date_year" name="date_year" class="text" type="text">
+
+	    <div class="date-fill">
+	      <a onclick="dateToday()">Today</a> |
+	      <a onclick="dateYesterday()">Yesterday</a>
+	    </div>
+	  </div>
+	  <div class="buttons">
+	    <input id="addprod" class="awesome green" type="button" value="Add">
+	  </div>
+	</form>
+      </div>
+
+
+ </div>

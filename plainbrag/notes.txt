@@ -1,0 +1,24 @@
+1. Get the form submit working with normal http post with fields, as in the search interface
+2. Fix the user/product relationship and make sure the inserts in the db maintains the relationship
+
+3. Or, try using the ModelForm and see if it works. For the related user object, get the object
+   using the model functions and try saving it.
+
+
+
+
+
+Product ideas:
+
+1. Display what you bought and write reviews
+2. Broadcast if you want to buy anything , seeking recommendations from friends.
+3. Search for reviews from non-friends.
+
+
+Steps of implementation:
+
+1. Get the user data from graph api
+2. Get friends data from api
+3. Use db to display and update data
+4. Try to retrieve time and price form the UserProducts table and then start the js/ajax integration
+
