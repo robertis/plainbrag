@@ -13,8 +13,8 @@
 # under the License.
 
 # Facebook Application ID and Secret.
-FACEBOOK_APP_ID = '110350635663402'
-FACEBOOK_APP_SECRET = 'ad0390d1b44d360a64a502c913a69df1'
+FACEBOOK_APP_ID = '110350692263387'
+FACEBOOK_APP_SECRET = 'ap0k903j734d360a64a58as313a69df1'
 
 # Canvas Page name.
 FACEBOOK_CANVAS_NAME = 'plainbrag'
